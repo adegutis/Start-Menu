@@ -6,22 +6,22 @@
     The "command" can consist of anything that can be executed (e.g. PowerShell cmdlets, functions, .exe files, etc.)
     By default, command history is saved in a CSV file and the menu displays the last executed command.
 .EXAMPLE
-    PS C:\> Start-AdJsonMenu.ps1
-    Reads the JSON file and launches the  menu
+    PS C:\> Start-Menu.ps1 -JsonFile menu.json 
+    Reads a JSON file and launches the  menu
 .LINK
-    https://github.com/adegutis/Start-AdJsonMenu
+    https://github.com/adegutis/Start-Menu
 #>
 
 [cmdletbinding()]
 param(
-    $JsonFile = 'C:\Users\adegutis\Documents\PersonalGitHub\Start-JsonMenu\Sample.json', 
+    $JsonFile = '.\Sample.json', 
     $KeepCsvHistory = $True,
-    $CsvFile = 'C:\Users\adegutis\Documents\PersonalGitHub\Start-JsonMenu\ScriptHistory.csv'
+    $CsvFile = '.\ScriptHistory.csv'
 )
 
 function Get-MenuHistoryFromCsv {
     Param(
-        $CsvFile = 'C:\Users\adegutis\Documents\PersonalGitHub\Start-JsonMenu\ScriptHistory.csv'
+        $CsvFile = '.\ScriptHistory.csv'
     )
     Import-Csv $CsvFile | Sort-Object -Descending -Property LastRun | Out-GridView -Wait
 }
