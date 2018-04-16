@@ -3,25 +3,21 @@
         {
             "Name": "Get Top 10 Memory Usage by Process",
             "ScriptCommand": "Get-Process | Sort-Object -Property PrivateMemorySize64 -Descending | Select-Object -First 10 | Out-GridView -Wait",
-            "ScriptWaitTime": "10",
             "Include": "True"
         },
         {
             "Name": "Get Running Services",
             "ScriptCommand": "Get-Service | Where-Object {$_.Status -eq 'Running'} | Out-GridView -Wait",
-            "ScriptWaitTime": "20",
             "Include": "True"
         },
         {
             "Name": "Get Menu History From Csv",
             "ScriptCommand": "Get-MenuHistoryFromCsv",
-            "ScriptWaitTime": "20",
             "Include": "True"
         },
         {
             "Name": "Your Function",
             "ScriptCommand": "Get-YourFunction",
-            "ScriptWaitTime": "20",
             "Include": "False"
         }
     ]
